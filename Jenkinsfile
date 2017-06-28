@@ -7,4 +7,9 @@ steps {
    }
 }
  }
+post {
+    always {
+        archive 'dist/*.jar'
+        }
+ }
 }
