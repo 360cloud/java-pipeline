@@ -20,10 +20,13 @@ label 'apache'
 steps {
      sh 'ant -f build.xml -v'
    }
+post {
+   success {
+    archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
+        }
 }
 stage ('deploy') {
-
-       agent {
+ agent {
 label 'apache'
            }
 steps {
@@ -42,13 +45,5 @@ sh "java -jar rectangle_{env.BUILD_NUMBER}.jar 3 4"
 
     }
  }
-post {
-
-       agent {
-label 'apache'
-           }
-    always {
-        archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
-        }
  }
 }
