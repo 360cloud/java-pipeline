@@ -1,5 +1,9 @@
 pipeline {
  agent none
+environment {
+MAJOR_VERSION = 1
+    }
+
  stages {
    stage ('Unit test')
    {
@@ -87,6 +91,9 @@ echo "Merging development into master branch"
 sh 'git merge development'
 echo 'Pushing to master'
 sh 'git push origin master'
+echo "Tagging release"
+sh "git tag ${env.MAJOR_VERSION}-${env.BUILD_NUMBER}"
+sh "git push origin ${env.MAJOR_VERSION}-${env.BUILD_NUMBER}""
         }
 }
 }
