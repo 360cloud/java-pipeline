@@ -89,5 +89,5 @@ echo 'Pushing to master'
 sh 'git push origin master'
         }
 }
-
+}
 }
