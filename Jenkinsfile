@@ -75,7 +75,7 @@ label 'apache'
     when {
 branch 'development'
         }
-    }
+
     steps {
 echo " stashing local changes"
 sh 'git stash'
@@ -88,7 +88,6 @@ sh 'git merge development'
 echo 'Pushing to master'
 sh 'git push origin master'
         }
+}
 
-
- }
 }
