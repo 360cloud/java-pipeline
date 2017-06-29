@@ -93,7 +93,7 @@ echo 'Pushing to master'
 sh 'git push origin master'
 echo "Tagging release"
 sh "git tag ${env.MAJOR_VERSION}-${env.BUILD_NUMBER}"
-sh "git push origin ${env.MAJOR_VERSION}-${env.BUILD_NUMBER}""
+sh "git push origin ${env.MAJOR_VERSION}-${env.BUILD_NUMBER}"
         }
 }
 }
