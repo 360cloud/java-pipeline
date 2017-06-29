@@ -1,6 +1,5 @@
 pipeline {
  agent none
-
  stages {
    stage ('Unit test')
    {
@@ -25,6 +24,7 @@ post {
     archiveArtifacts artifacts: 'dist/*.jar', fingerprint: true
         }
 }
+}
 stage ('deploy') {
  agent {
 label 'apache'
@@ -41,8 +41,6 @@ label 'Centos'
 steps {
 sh "wget http://a4645082b.mylabserver.com/rectangles/all/rectangle_{env.BUILD_NUMBER}.jar"
 sh "java -jar rectangle_{env.BUILD_NUMBER}.jar 3 4"
-    }
-
     }
  }
  }
