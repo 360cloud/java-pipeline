@@ -53,5 +53,12 @@ sh "wget http://a4645082b.mylabserver.com/rectangles/all/rectangle_${env.BUILD_N
 sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
     }
     }
+stage ('Stage Promotion'){
+steps {
+sh "cp /var/www/html/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/green/rectangle_${env.BUILD_NUMBER}.jar "
+    }
+
+    }
+
  }
 }
