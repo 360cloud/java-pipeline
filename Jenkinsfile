@@ -1,7 +1,7 @@
-pipeline{
+pipeline {
  agent none
 
- stages{
+ stages {
    stage ('Unit test')
    {
        agent {
