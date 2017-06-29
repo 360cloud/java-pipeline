@@ -85,6 +85,7 @@ echo " stashing local changes"
 sh 'git stash'
 echo "Checking out Development branch"
 sh 'git checkout development'
+sh 'git pull origin'
 echo "Checking out master branch"
 sh 'git checkout master'
 echo "Merging development into master branch"
